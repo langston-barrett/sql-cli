@@ -25,7 +25,7 @@ As seen above, `sql-cli` generates one subcommand per table. Each table has a
 `get` subcommand:
 
 ```sh
-sql-cli chinook.sqlite Genre get | head -n 3
+sql-cli chinook.db Genre get | head -n 3
 ```
 
 ```
@@ -39,7 +39,7 @@ filter based on the genre's primary key (the `GenreId` column), and print it as
 a JSON dictionary:
 
 ```sh
-sql-cli chinook.sqlite Genre get --format jsonl --GenreId-is 2
+sql-cli chinook.db Genre get --format jsonl --GenreId-is 2
 ```
 
 ```json
@@ -74,6 +74,14 @@ sql-cli uses SQLAlchemy's reflection mechanism to generate Python objects that
 represent the database's schema. It then generates argument parsers based on
 this schema, and has generic CRUD operations that consume the results of those
 parsers.
+
+## Installation
+
+```python3
+git clone https://github.com/langston-barrett/sql-cli
+cd sql-cli
+pip install .
+```
 
 ## Development
 
